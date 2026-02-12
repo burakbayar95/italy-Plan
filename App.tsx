@@ -162,15 +162,20 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen pb-10 relative">
       
-      {/* Background Image Layer */}
-      <div 
-        className="fixed inset-0 z-0 transition-all duration-700 ease-in-out"
-        style={{
-            backgroundImage: `url(${theme.img})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-        }}
-      />
+      {/* Background Image Layer - Preloaded and Crossfaded */}
+      {(Object.values(City) as City[]).map((city) => (
+          <div
+            key={city}
+            className={`fixed inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
+                activeCity === city ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+                backgroundImage: `url(${CITY_THEME[city].img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+            }}
+          />
+      ))}
       
       {/* Dark Overlay for Readability */}
       <div className="fixed inset-0 z-0 bg-black/40 backdrop-blur-sm" />
