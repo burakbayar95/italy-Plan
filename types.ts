@@ -1,6 +1,9 @@
 export enum City {
+  BOLOGNA = 'Bologna',
+  FLORENCE = 'Floransa',
   VENICE = 'Venedik',
-  FLORENCE = 'Floransa'
+  VERONA = 'Verona',
+  MILAN = 'Milano'
 }
 
 export enum TagType {
