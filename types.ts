@@ -1,9 +1,12 @@
 export enum City {
-  BOLOGNA = 'Bologna',
+  BOLOGNA_1 = 'Bologna - 19 Şub',
+  BOLOGNA_2 = 'Bologna - 20 Şub',
   FLORENCE = 'Floransa',
   VENICE = 'Venedik',
   VERONA = 'Verona',
-  MILAN = 'Milano'
+  MILAN_1 = 'Milano - 24 Şub',
+  MILAN_2 = 'Milano - 25 Şub',
+  MILAN_3 = 'Milano - 26 Şub'
 }
 
 export enum TagType {

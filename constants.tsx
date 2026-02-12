@@ -3,10 +3,10 @@ import { Camera, Utensils, Footprints, Train, ShoppingBag, Info } from 'lucide-r
 import React from 'react';
 
 export const INITIAL_DATA: Activity[] = [
-  // --- BOLOGNA (19-20 Feb) ---
+  // --- BOLOGNA DAY 1 (19 Feb) ---
   {
     id: 'b-1',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_1,
     time: '12:20',
     title: 'Bologna Varış',
     description: 'Havalimanından merkeze ulaşım (Marconi Express ~7 dk). Otele yerleşme ve kısa dinlenme.',
@@ -15,7 +15,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-2',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_1,
     time: '14:30',
     title: 'Piazza Maggiore & San Petronio',
     description: 'Şehrin kalbi Maggiore Meydanı ve devasa San Petronio Bazilikası gezisi.',
@@ -24,7 +24,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-3',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_1,
     time: '16:00',
     title: 'Quadrilatero Bölgesi',
     description: 'Tarihi pazar sokaklarında yürüyüş. Şarküteri vitrinlerini incele.',
@@ -33,17 +33,18 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-4',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_1,
     time: '19:30',
     title: 'Akşam Yemeği: Bolonez Klasiği',
     description: 'Tagliatelle al Ragù veya Tortellini in Brodo tat. Rezervasyon önerilir.',
     tags: [TagType.FOOD],
     isCompleted: false
   },
-  // 20 Feb
+  
+  // --- BOLOGNA DAY 2 (20 Feb) ---
   {
     id: 'b-5',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_2,
     time: '09:30',
     title: 'Archiginnasio & Tarihi Merkez',
     description: 'Eski üniversite binası ve Antatomik Tiyatro (Teatro Anatomico).',
@@ -53,7 +54,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-6',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_2,
     time: '12:30',
     title: 'Öğle Yemeği: Mercato delle Erbe',
     description: 'Yerel halkın tercih ettiği kapalı pazar yerinde taze makarna veya pizza.',
@@ -62,7 +63,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-7',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_2,
     time: '14:30',
     title: 'San Luca Tepesi',
     description: 'Dünyanın en uzun revaklı yolundan (portico) yürüyerek veya trenle çıkış. Panoramik manzara.',
@@ -71,7 +72,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'b-8',
-    city: City.BOLOGNA,
+    city: City.BOLOGNA_2,
     time: 'Akşam',
     title: 'Serbest Zaman & Aperitivo',
     description: 'Via del Pratello veya öğrenci bölgesinde akşam içeceği ve atıştırmalık.',
@@ -259,10 +260,10 @@ export const INITIAL_DATA: Activity[] = [
     isCompleted: false
   },
 
-  // --- MİLANO (24-26 Feb) ---
+  // --- MİLANO DAY 1 (24 Feb) ---
   {
     id: 'm-1',
-    city: City.MILAN,
+    city: City.MILAN_1,
     time: '09:46 - 12:15',
     title: 'Milano’ya Tren Yolculuğu',
     description: 'Bologna’dan çıkış, Milano Centrale’ye varış ve otele yerleşme.',
@@ -271,7 +272,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'm-2',
-    city: City.MILAN,
+    city: City.MILAN_1,
     time: '13:30',
     title: 'Duomo di Milano',
     description: 'Gotik katedral. Terasa çıkış şiddetle önerilir (Asansör/Merdiven).',
@@ -281,7 +282,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'm-3',
-    city: City.MILAN,
+    city: City.MILAN_1,
     time: '15:30',
     title: 'Galleria Vittorio Emanuele II',
     description: 'Dünyanın en eski alışveriş pasajlarından biri. Boğa mozaiğinde dönme ritüeli.',
@@ -290,17 +291,18 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'm-4',
-    city: City.MILAN,
+    city: City.MILAN_1,
     time: 'Akşam',
     title: 'Navigli Bölgesi Akşam Yemeği',
     description: 'Kanallar bölgesinde "Aperitivo" veya akşam yemeği.',
     tags: [TagType.FOOD],
     isCompleted: false
   },
-  // 25 Feb
+  
+  // --- MİLANO DAY 2 (25 Feb) ---
   {
     id: 'm-5',
-    city: City.MILAN,
+    city: City.MILAN_2,
     time: 'Tüm Gün',
     title: 'Alışveriş Günü',
     description: 'Serravalle Designer Outlet (uzak) veya Scalo Milano (yakın) seçenekleri.',
@@ -309,17 +311,18 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'm-6',
-    city: City.MILAN,
+    city: City.MILAN_2,
     time: 'Akşam',
     title: 'Brera veya Navigli',
     description: 'Son akşam için Brera’nın şık sokakları veya Navigli’nin canlı ortamı.',
     tags: [TagType.FOOD, TagType.SIGHTSEEING],
     isCompleted: false
   },
-  // 26 Feb
+  
+  // --- MİLANO DAY 3 (26 Feb) ---
   {
     id: 'm-7',
-    city: City.MILAN,
+    city: City.MILAN_3,
     time: '07:05',
     title: 'Milano’dan Bologna’ya Dönüş',
     description: 'Milano Centrale → Bologna (09:56 varış).',
@@ -328,7 +331,7 @@ export const INITIAL_DATA: Activity[] = [
   },
   {
     id: 'm-8',
-    city: City.MILAN,
+    city: City.MILAN_3,
     time: '13:30',
     title: 'Uçuş: Bologna → İstanbul',
     description: 'Bologna Havalimanı’ndan (BLQ) dönüş uçuşu.',

@@ -22,17 +22,26 @@ import { INITIAL_DATA } from './constants';
 import ActivityCard from './components/ActivityCard';
 import ProgressBar from './components/ProgressBar';
 
-const STORAGE_KEY = 'italy-trip-planner-v2';
+const STORAGE_KEY = 'italy-trip-planner-v3';
 
 const CITY_THEME = {
-  [City.BOLOGNA]: { 
+  [City.BOLOGNA_1]: { 
       bg: 'bg-red-600', 
       progress: 'bg-red-500', 
       light: 'bg-red-50', 
       text: 'text-red-700', 
-      label: 'Bologna (19-20 Şub)',
-      shortLabel: 'Bologna',
+      label: 'Bologna (19 Şub)',
+      shortLabel: 'BOL 1',
       img: 'https://images.unsplash.com/photo-1555992828-ca4dbe41d294?q=80&w=2564&auto=format&fit=crop'
+  },
+  [City.BOLOGNA_2]: { 
+      bg: 'bg-red-500', 
+      progress: 'bg-red-400', 
+      light: 'bg-red-50', 
+      text: 'text-red-600', 
+      label: 'Bologna (20 Şub)',
+      shortLabel: 'BOL 2',
+      img: 'https://images.unsplash.com/photo-1520190282873-dfe1246342c5?q=80&w=2670&auto=format&fit=crop' 
   },
   [City.FLORENCE]: { 
       bg: 'bg-amber-600', 
@@ -59,22 +68,40 @@ const CITY_THEME = {
       text: 'text-lime-700', 
       label: 'Verona (23 Şub)',
       shortLabel: 'Verona',
-      img: 'https://www.bizevdeyokuz.com/wp-content/uploads/verona-arenasi.jpg'
+      img: 'https://images.unsplash.com/photo-1518179299440-690226c8b4b7?q=80&w=2574&auto=format&fit=crop'
   },
-  [City.MILAN]: { 
+  [City.MILAN_1]: { 
       bg: 'bg-indigo-600', 
       progress: 'bg-indigo-500', 
       light: 'bg-indigo-50', 
       text: 'text-indigo-700', 
-      label: 'Milano (24-26 Şub)',
-      shortLabel: 'Milano',
-      img: 'https://media.istockphoto.com/id/493223692/tr/foto%C4%9Fraf/milan-cathedral-italy.jpg?s=612x612&w=0&k=20&c=440XAQEZK0qv3HOW-S3-A2UsiO-0yCFuFEp6Pn-rngE='
+      label: 'Milano (24 Şub)',
+      shortLabel: 'MIL 1',
+      img: 'https://images.unsplash.com/photo-1513581166391-887a96ddeafd?q=80&w=2574&auto=format&fit=crop'
   },
+  [City.MILAN_2]: { 
+      bg: 'bg-indigo-500', 
+      progress: 'bg-indigo-400', 
+      light: 'bg-indigo-50', 
+      text: 'text-indigo-600', 
+      label: 'Milano (25 Şub)',
+      shortLabel: 'MIL 2',
+      img: 'https://images.unsplash.com/photo-1515542622106-78bda8ba0e5b?q=80&w=2670&auto=format&fit=crop'
+  },
+  [City.MILAN_3]: { 
+      bg: 'bg-indigo-400', 
+      progress: 'bg-indigo-300', 
+      light: 'bg-indigo-50', 
+      text: 'text-indigo-500', 
+      label: 'Milano (26 Şub)',
+      shortLabel: 'MIL 3',
+      img: 'https://images.unsplash.com/photo-1533663004383-77d33d7b8813?q=80&w=2574&auto=format&fit=crop'
+  }
 };
 
 const App: React.FC = () => {
   const [activities, setActivities] = useState<Activity[]>([]);
-  const [activeCity, setActiveCity] = useState<City>(City.BOLOGNA);
+  const [activeCity, setActiveCity] = useState<City>(City.BOLOGNA_1);
   const [isLoading, setIsLoading] = useState(true);
 
   // Load from LocalStorage on mount
@@ -155,7 +182,7 @@ const App: React.FC = () => {
   const totalCount = currentActivities.length;
   const completedCount = currentActivities.filter((a) => a.isCompleted).length;
 
-  const theme = CITY_THEME[activeCity] || CITY_THEME[City.BOLOGNA];
+  const theme = CITY_THEME[activeCity] || CITY_THEME[City.BOLOGNA_1];
 
   if (isLoading) return <div className="flex items-center justify-center h-screen">Yükleniyor...</div>;
 
@@ -186,25 +213,27 @@ const App: React.FC = () => {
         {/* Header - Minimalist Transparent */}
         <header className="pt-8 pb-6 px-6 text-center text-white">
             <h1 className="text-3xl font-bold mb-1 drop-shadow-md">İtalya Turu 2026</h1>
-            <p className="text-white/90 text-sm font-medium drop-shadow-sm">Bologna • Floransa • Venedik • Verona • Milano</p>
+            <p className="text-white/90 text-sm font-medium drop-shadow-sm">19 - 26 Şubat</p>
         </header>
 
         <main className="max-w-lg mx-auto px-4">
             
-            {/* City Tabs - Grid Layout (No Scroll) */}
+            {/* City Tabs - Grid Layout (Wrapped) */}
             <div className="bg-white/90 backdrop-blur-md p-2 rounded-2xl shadow-xl mb-6">
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                <div className="grid grid-cols-4 gap-2">
                     {(Object.values(City) as City[]).map((city) => (
                         <button
                             key={city}
                             onClick={() => setActiveCity(city)}
-                            className={`px-1 py-3 text-xs font-bold rounded-xl transition-all duration-300 flex flex-col items-center justify-center gap-1 ${
+                            className={`px-1 py-2 text-xs font-bold rounded-xl transition-all duration-300 flex flex-col items-center justify-center gap-1 ${
                                 activeCity === city 
-                                ? `${CITY_THEME[city].light} ${CITY_THEME[city].text} ring-1 ring-inset ring-opacity-50` 
+                                ? `${CITY_THEME[city].light} ${CITY_THEME[city].text} ring-1 ring-inset ring-opacity-50 scale-105` 
                                 : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100/50'
                             }`}
                         >
-                            <span className="truncate w-full text-center">{CITY_THEME[city].shortLabel}</span>
+                            <span className="truncate w-full text-center text-[10px] sm:text-xs">
+                                {CITY_THEME[city].shortLabel}
+                            </span>
                         </button>
                     ))}
                 </div>
